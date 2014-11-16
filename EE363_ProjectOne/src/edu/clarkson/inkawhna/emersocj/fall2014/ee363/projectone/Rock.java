@@ -10,7 +10,7 @@ public class Rock extends WeaponDecorator {
 	@Override
 	public String attack() {
 		//it is not the job of this method to see if this concatenation is proper so we do not check here 
-		return new String(this.getWeapon().attack() +"," + "ROCK");
+		return new String(this.getWeaponAttack() +"," + "ROCK");
 	}
 
 }
