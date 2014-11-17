@@ -40,12 +40,16 @@ public class ImplementGame implements ActionListener {
 	JButton submitMoveButton;
     JButton backButton;
     
+    String rightHandChoice;
+    String leftHandChoice;
+    
     
 	JPanel cards;
     final static String STARTPANEL = "START SCREEN";
 	//final static String RIGHTHANDPANEL = "RIGHT HANDED GAME";
 	//final static String LEFTHANDPANEL = "LEFT HANDED GAME";
 	final static String TWOHANDPANEL = "TWO HANDED GAME";
+	final static String RESULTSPANEL = "RESULTS";
 	
 	public void addComponentsToPane(Container pane) {
 		
@@ -97,7 +101,7 @@ public class ImplementGame implements ActionListener {
         GridBagConstraints s = new GridBagConstraints();
       //TITLE PANEL
         JPanel titlePanel = new JPanel();
-        JLabel titleLabel = new JLabel("Welcome to the TWO HANDED game, " + nameField.getText());
+        JLabel titleLabel = new JLabel("Welcome to the TWO HANDED game, ");
         JLabel titleLabel2 = new JLabel("Now choose your weapons!!");
         titlePanel.add(titleLabel);
         titlePanel.add(titleLabel2);
@@ -105,10 +109,20 @@ public class ImplementGame implements ActionListener {
         JPanel rightHandPanel = new JPanel(new GridLayout(0,1));
         JLabel rightHandLabel1 = new JLabel("RIGHT HANDED weapon: ");
         JRadioButton rockButton = new JRadioButton("ROCK");
+        rockButton.addActionListener(this);
+        rockButton.setActionCommand("ROCK");
         JRadioButton paperButton = new JRadioButton("PAPER");
+        paperButton.addActionListener(this);
+        paperButton.setActionCommand("PAPER");
         JRadioButton scissorsButton = new JRadioButton("SCISSORS");
+        scissorsButton.addActionListener(this);
+        scissorsButton.setActionCommand("SCISSORS");
         JRadioButton lizardButton = new JRadioButton("LIZARD");
+        lizardButton.addActionListener(this);
+        lizardButton.setActionCommand("LIZARD");
         JRadioButton spockButton = new JRadioButton("SPOCK");
+        spockButton.addActionListener(this);
+        spockButton.setActionCommand("SPOCK");
         ButtonGroup rightHandGroup = new ButtonGroup();
         rightHandGroup.add(rockButton);
         rightHandGroup.add(paperButton);
@@ -125,10 +139,16 @@ public class ImplementGame implements ActionListener {
         
       //LEFT HAND PANEL
         JPanel leftHandPanel = new JPanel(new GridLayout(0,1));
-        JLabel leftHandLabel1 = new JLabel("LEFT HANDED weapon");
+        JLabel leftHandLabel1 = new JLabel("LEFT HANDED weapon:");
         JRadioButton poisionButton = new JRadioButton("POISION");
+        poisionButton.addActionListener(this);
+        poisionButton.setActionCommand("POISION");
         JRadioButton radioactiveButton = new JRadioButton("RADIOACTIVE");
+        radioactiveButton.addActionListener(this);
+        radioactiveButton.setActionCommand("RADIOACTIVE");
         JRadioButton infectedButton = new JRadioButton("INFECTED");
+        rockButton.addActionListener(this);
+        infectedButton.setActionCommand("INFECTED");
         ButtonGroup leftHandGroup = new ButtonGroup();
         leftHandGroup.add(poisionButton);
         leftHandGroup.add(radioactiveButton);
@@ -141,6 +161,7 @@ public class ImplementGame implements ActionListener {
       //BUTTON PANEL
         JPanel buttonPanel = new JPanel();
         submitMoveButton = new JButton("Submit Move!");
+        submitMoveButton.addActionListener(this);
         backButton = new JButton("Back");
         backButton.addActionListener(this);
         buttonPanel.add(submitMoveButton);
@@ -178,6 +199,13 @@ public class ImplementGame implements ActionListener {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         twoHandCard.add(buttonPanel,s);
         
+        //RESULTS PANEL
+        JPanel resultsPanel = new JPanel();
+        JLabel resultsLabel = new JLabel("Game Results");
+        JLabel resultsLabel1 = new JLabel("Your Attack: ");
+        String message1 = rightHandChoice ;
+        JLabel resultsLabel2 = new JLabel("Opponents Attack: ");
+        
         cards = new JPanel(new CardLayout());
 		cards.add(startPanel,STARTPANEL);
 		//cards.add(rightHandCard,RIGHTHANDPANEL);
@@ -207,6 +235,15 @@ public class ImplementGame implements ActionListener {
 			CardLayout cl = (CardLayout) (cards.getLayout());
 			cl.show(cards, STARTPANEL);
 		}
+		if (e.getSource().equals(submitMoveButton)) {
+			rightHandChoice = e.getActionCommand();
+			leftHandChoice = e.getActionCommand();
+			System.out.println("rightHandChoice: " + rightHandChoice);
+			System.out.println("leftHandChoice: " + leftHandChoice);
+			CardLayout cl = (CardLayout) (cards.getLayout());
+			cl.show(cards, RESULTSPANEL);
+		}
+		
 		
 		
 	}
