@@ -348,9 +348,13 @@ public class ImplementGame implements ActionListener {
 			weaponArray.add(computerLeftHand);
 			
 			GameScoring gameScoring = new TotalGameScoring();
-			gameScoring.selectWinner(weaponArray);
+			gameScoring.selectWinner(weaponArray);//THIS NEEDS TO BE ABLE TO RETURN AN INT OR SOMETHING (CANT RETURN VOID)
 			
+			System.out.println(playerRightHand.attack());
+			System.out.println(playerLeftHand.attack()); //THIS GIVES INCORRECT ATTACK RESULT
 			
+			//IF WE CHOOSE TO PLAY AGAIN, A NEW SET OF WEAPON OBJECTS IS NOT CREATED, 
+			//SO WE JUST KEEP WRAPPING THE OLD WEAPONS, WHICH WILL NOT WORK
 			
 			CardLayout cl = (CardLayout) (cards.getLayout());
 			cl.show(cards, RESULTSPANEL);

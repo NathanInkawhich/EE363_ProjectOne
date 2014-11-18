@@ -10,7 +10,7 @@ public class RightHandWeapon extends Weapon {
 	/**
 	 * Constructs attack string variable.
 	 */
-	RightHandWeapon()
+	public RightHandWeapon()
 	{
 		attackDescription = "Right Handed Weapon";	
 	}
