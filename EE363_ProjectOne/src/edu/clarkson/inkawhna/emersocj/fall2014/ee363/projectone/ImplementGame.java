@@ -2,6 +2,7 @@ package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 //CODY?
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -77,7 +78,7 @@ public class ImplementGame implements ActionListener {
         nameLabel.setBorder(BorderFactory.createEmptyBorder(10,10,5,10));
         startPanel.add(nameLabel, c);
         
-        nameField= new JTextField("\t\t\t");
+        nameField= new JTextField(20);
     	c.fill = GridBagConstraints.VERTICAL;
         c.weightx = 0.5;
         c.gridx = 0;
@@ -226,7 +227,9 @@ public class ImplementGame implements ActionListener {
         opponentAttackField = new JTextField(20);
         opponentAttackField.setEditable(false);
         JLabel resultsLabel2 = new JLabel("Opponents Attack: ");
-        whoWonField = new JTextField("THIS IS WHO WON");
+        JLabel nullLabel = new JLabel("  ");
+        JLabel nullLabel2 = new JLabel("  ");
+        whoWonField = new JTextField("THIS IS WHO WON",20);
         whoWonField.setEditable(false);
         //whoWonField.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         r.fill = GridBagConstraints.VERTICAL;
@@ -267,11 +270,23 @@ public class ImplementGame implements ActionListener {
         r.gridx = 0;
         r.gridy = 3;
         r.gridwidth = 2;
-        resultsPanel.add(whoWonField,r);
+        resultsPanel.add(nullLabel,r);
         r.fill = GridBagConstraints.VERTICAL;
         r.weightx = 0.5;
         r.gridx = 0;
         r.gridy = 4;
+        r.gridwidth = 2;
+        resultsPanel.add(whoWonField,r);
+        r.fill = GridBagConstraints.VERTICAL;
+        r.weightx = 0.5;
+        r.gridx = 0;
+        r.gridy = 5;
+        r.gridwidth = 2;
+        resultsPanel.add(nullLabel2,r);
+        r.fill = GridBagConstraints.VERTICAL;
+        r.weightx = 0.5;
+        r.gridx = 0;
+        r.gridy = 6;
         r.gridwidth = 2;
         playAgainButton.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         resultsPanel.add(playAgainButton,r);
@@ -282,6 +297,7 @@ public class ImplementGame implements ActionListener {
 		//cards.add(leftHandCard,LEFTHANDPANEL);
 		cards.add(twoHandCard,TWOHANDPANEL);
 		cards.add(resultsPanel,RESULTSPANEL);
+		
 		pane.add(cards);
 	}
 	public void actionPerformed(ActionEvent e) {
