@@ -1,6 +1,4 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
-//CODY?
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -10,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
@@ -44,8 +43,12 @@ public class ImplementGame implements ActionListener {
     JButton playAgainButton;
     JTextField whoWonField;
     
-    String rightHandChoice = "Hasnt been assigned yet";
-    String leftHandChoice = "Hasnt been assigned yet";
+
+    Weapon playerRightHand = new RightHandWeapon();
+    Weapon playerLeftHand = new LeftHandWeapon();
+    Weapon computerRightHand = new RightHandWeapon();
+    Weapon computerLeftHand = new LeftHandWeapon();
+    
     JRadioButton rockButton;
     JRadioButton paperButton;
     JRadioButton scissorsButton;
@@ -324,60 +327,62 @@ public class ImplementGame implements ActionListener {
 		}
 		if (e.getSource().equals(submitMoveButton)) {
 			
-			if(rockButton.isSelected() == true){rightHandChoice = "ROCK";}
-			if(paperButton.isSelected() == true){rightHandChoice = "PAPER";}
-			if(scissorsButton.isSelected() == true){rightHandChoice = "SCISSORS";}
-			if(lizardButton.isSelected() == true){rightHandChoice = "LIZARD";}
-			if(spockButton.isSelected() == true){rightHandChoice = "SPOCK";}
-			if(poisionButton.isSelected() == true){leftHandChoice = "POISIONOUS";}
-			if(radioactiveButton.isSelected() == true){leftHandChoice = "RADIOACTIVE";}
-			if(infectedButton.isSelected() == true){leftHandChoice = "INFECTED";}
+			if(rockButton.isSelected() == true)     	playerRightHand = new Rock(playerRightHand);
+			if(paperButton.isSelected() == true)    	playerRightHand = new Paper(playerRightHand);
+			if(scissorsButton.isSelected() == true)		playerRightHand = new Scissors(playerRightHand);
+			if(lizardButton.isSelected() == true)   	playerRightHand = new Lizard(playerRightHand);
+			if(spockButton.isSelected() == true)    	playerRightHand = new Spock(playerRightHand);
+			if(poisionButton.isSelected() == true)  	playerLeftHand = new Poisonous(playerRightHand);
+			if(radioactiveButton.isSelected() == true)  playerLeftHand = new Radioactive(playerRightHand);
+			if(infectedButton.isSelected() == true) 	playerLeftHand =new Infected(playerRightHand);
 				
-			System.out.println("rightHandChoice: " + rightHandChoice);
-			System.out.println("leftHandChoice: " + leftHandChoice);
 			
-			yourAttackField.setText(rightHandChoice + "," + leftHandChoice);
+			generateOpponentAttack();
 			
-			String opponentAttack = generateOpponentAttack();
-			opponentAttackField.setText(opponentAttack);
+
+			ArrayList<Weapon> weaponArray = new <Weapon>ArrayList();
 			
-			//***********************
-			//This is where we would call the scoring method
-			//whoWonField.setText();
-			//***********************
+			weaponArray.add(playerRightHand);
+			weaponArray.add(playerLeftHand);
+			weaponArray.add(computerRightHand);
+			weaponArray.add(computerLeftHand);
+			
+			GameScoring gameScoring = new TotalGameScoring();
+			gameScoring.selectWinner(weaponArray);
+			
+			
 			
 			CardLayout cl = (CardLayout) (cards.getLayout());
 			cl.show(cards, RESULTSPANEL);
-			
 		}
+		
 		if (e.getSource().equals(playAgainButton)) {
 			CardLayout cl = (CardLayout) (cards.getLayout());
 			cl.show(cards, TWOHANDPANEL);
-		}
-		
-		
-		
+		}		
 	}
-	private String generateOpponentAttack(){
+			
+			
+	public void generateOpponentAttack(){
 		
 		Random rn = new Random();
-		String rhAttack;
-		int rightHand = rn.nextInt(5);
-		if(rightHand == 0 ){rhAttack = "ROCK";}
-		else if(rightHand == 1 ){rhAttack = "PAPER";}
-		else if(rightHand == 2 ){rhAttack = "SCISSORS";}
-		else if(rightHand == 3 ){rhAttack = "LIZARD";}
-		else if(rightHand == 4 ){rhAttack = "SPOCK";}
-		else rhAttack = "none";
 		
-		String lhAttack;
-		int leftHand = rn.nextInt(3);
-		if(leftHand == 0 ){lhAttack = "POISIONOUS";}
-		else if(leftHand == 1 ){lhAttack = "RADIOACTIVE";}
-		else if(leftHand == 2 ){lhAttack = "INFECTED";}
-		else lhAttack = "none";
 		
-		return new String(rhAttack + "," + lhAttack);
+		int randRight = rn.nextInt(5);
+			
+		if     (randRight == 0 ) computerRightHand = new Rock(computerRightHand);
+		else if(randRight == 1 ) computerRightHand = new Paper(computerRightHand);
+		else if(randRight == 2 ) computerRightHand = new Scissors(computerRightHand);
+		else if(randRight == 3 ) computerRightHand = new Spock(computerRightHand);
+		else if(randRight == 4 ) computerRightHand = new Lizard(computerRightHand);
+	
+
+		int randLeft = rn.nextInt(3);
+		
+		if	   (randLeft == 0 ) computerLeftHand = new Poisonous(computerLeftHand);
+		else if(randLeft == 1 ) computerLeftHand = new Infected(computerLeftHand);
+		else if(randLeft == 2 ) computerLeftHand = new Radioactive(computerLeftHand);
+		
 	}
 	private static void createAndShowGUI() {
         //Create and set up the window.

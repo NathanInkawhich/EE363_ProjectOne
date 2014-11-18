@@ -1,16 +1,29 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Rock Weapon Type
+ * @author Wizard
+ *
+ */
 public class Rock extends WeaponDecorator {
 
-	public Rock(Weapon w) {
-		super(w);
-		
+	Weapon weapon;
+	
+	/**
+	 * Sets the previous weapon to the new decorated weapon : Constructor
+	 * @param weapon
+	 */
+	public Rock(Weapon weapon) {		
+		this.weapon = weapon;		
 	}
 
+	/**
+	 * Returns the previous weapon attack decorated with Rock
+	 * @returns String
+	 */
 	@Override
 	public String attack() {
-		//it is not the job of this method to see if this concatenation is proper so we do not check here 
-		return new String(this.getWeaponAttack() +"," + "ROCK");
+		return "Rock " + weapon.attack();				
 	}
 
 }
