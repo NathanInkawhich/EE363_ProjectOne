@@ -329,6 +329,8 @@ public class ImplementGame implements ActionListener {
 			
 		    Weapon playerRightHand = new RightHandWeapon();
 		    Weapon playerLeftHand = new LeftHandWeapon();
+		    computerRightHand = new RightHandWeapon();
+		    computerLeftHand = new LeftHandWeapon();
 		    
 			if(rockButton.isSelected() == true)     	playerRightHand = new Rock(playerRightHand);
 			if(paperButton.isSelected() == true)    	playerRightHand = new Paper(playerRightHand);
@@ -351,16 +353,30 @@ public class ImplementGame implements ActionListener {
 			weaponArray.add(computerLeftHand);
 			
 			GameScoring gameScoring = new TotalGameScoring();
-			gameScoring.selectWinner(weaponArray);//THIS NEEDS TO BE ABLE TO RETURN AN INT OR SOMETHING (CANT RETURN VOID)
+			int score = gameScoring.selectWinner(weaponArray);//THIS NEEDS TO BE ABLE TO RETURN AN INT OR SOMETHING (CANT RETURN VOID)
 			
-			System.out.println(playerRightHand.attack());
-			System.out.println(playerLeftHand.attack()); //THIS GIVES INCORRECT ATTACK RESULT
+			System.out.println("Who won: " + score);
+			String[] pr = playerRightHand.attack().split(" ");
+			System.out.println(pr[0]);
+			String[] pl = playerLeftHand.attack().split(" ");
+			System.out.println(pl[0]);
+			String[] cr = computerRightHand.attack().split(" ");
+			System.out.println(cr[0]);
+			String[] cl = computerLeftHand.attack().split(" ");
+			System.out.println(cl[0]);
+			
+			System.out.println();
+			System.out.println("Player Right: " + playerRightHand.attack());
+			System.out.println("Player Left: " + playerLeftHand.attack()); 
+			System.out.println("Computer Right: " + computerRightHand.attack());
+			System.out.println("Computer Left: " + computerLeftHand.attack()); 
 
-		   yourAttackField.setText(playerRightHand.attack());
+		   yourAttackField.setText(pr[0] + " , " + pl[0]);
+		   opponentAttackField.setText(cr[0] + " , " + cl[0]);
 		   // opponentAttackField;
 			
-			CardLayout cl = (CardLayout) (cards.getLayout());
-			cl.show(cards, RESULTSPANEL);
+			CardLayout card = (CardLayout) (cards.getLayout());
+			card.show(cards, RESULTSPANEL);
 		}
 		
 		if (e.getSource().equals(playAgainButton)) {
