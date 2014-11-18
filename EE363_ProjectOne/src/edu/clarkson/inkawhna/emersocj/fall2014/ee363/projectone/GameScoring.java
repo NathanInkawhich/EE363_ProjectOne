@@ -15,9 +15,9 @@ public abstract class GameScoring {
 	 * Selects the winner of a game decided by the gameScoringBehavior
 	 * @param weaponArray
 	 */
-	public void selectWinner(ArrayList<Weapon> weaponArray)
+	public int selectWinner(ArrayList<Weapon> weaponArray)
 	{
-		gameScoringBehavior.selectWinner(weaponArray);
+		return gameScoringBehavior.selectWinner(weaponArray);
 	}
 
 }
