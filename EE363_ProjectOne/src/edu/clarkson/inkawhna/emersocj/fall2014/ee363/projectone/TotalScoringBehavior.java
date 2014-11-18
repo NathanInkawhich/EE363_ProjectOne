@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public class TotalScoringBehavior implements GameScoringBehavior {
 	
-	final String ROCK = "RIGHT ROCK";
-	final String PAPER =  "RIGHT PAPER";	
-	final String SCISSORS = "RIGHT SCISSORS";
-	final String LIZARD =  "RIGHT LIZARD";	
-	final String SPOCK= "RIGHT SPOCK";
-	final String POISONOUS = "LEFT POISIONOUS";
-	final String INFESTED =  "LEFT INFESTED";	
-	final String RADIOACTIVE = "LEFT RADIOACTIVE";
+	final String ROCK = "Rock Right Handed Weapon";
+	final String PAPER =  "Paper Right Handed Weapon";	
+	final String SCISSORS = "Scissors Right Handed Weapon";
+	final String LIZARD =  "Lizard Right Handed Weapon";	
+	final String SPOCK= "Spock Rigfht Handed Weapon";
+	final String POISONOUS = "Poisonous Left Handed Weapon";
+	final String INFESTED =  "Infested Left Handed Weapon";	
+	final String RADIOACTIVE = "Radioactice Left Handed Weapon";
 	
 	/**
 	 * Contains the logic to select the winner of the game.

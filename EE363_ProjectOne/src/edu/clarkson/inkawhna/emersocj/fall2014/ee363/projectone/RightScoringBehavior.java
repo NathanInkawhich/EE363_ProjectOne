@@ -11,11 +11,11 @@ import java.util.ArrayList;
  */
 public class RightScoringBehavior implements GameScoringBehavior {
 	
-	final String ROCK = "RIGHT ROCK";
-	final String PAPER =  "RIGHT PAPER";	
-	final String SCISSORS = "RIGHT SCISSORS";
-	final String LIZARD =  "RIGHT LIZARD";	
-	final String SPOCK= "RIGHT SPOCK";
+	final String ROCK = "Rock Right Handed Weapon";
+	final String PAPER =  "Paper Right Handed Weapon";	
+	final String SCISSORS = "Scissors Right Handed Weapon";
+	final String LIZARD =  "Lizard Right Handed Weapon";	
+	final String SPOCK= "Spock Rigfht Handed Weapon";
 	
 
 	/**
