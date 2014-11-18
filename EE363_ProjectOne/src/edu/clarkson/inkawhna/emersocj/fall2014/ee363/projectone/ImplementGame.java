@@ -20,7 +20,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * This class implements the Rock, Paper, Scissors, Lizard, Spock game
@@ -231,7 +233,7 @@ public class ImplementGame implements ActionListener {
         JLabel resultsLabel2 = new JLabel("Opponents Attack: ");
         JLabel nullLabel = new JLabel("  ");
         JLabel nullLabel2 = new JLabel("  ");
-        whoWonField = new JTextField("THIS IS WHO WON",20);
+        whoWonField = new JTextField("This is where the results go",20);
         whoWonField.setEditable(false);
         //whoWonField.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         r.fill = GridBagConstraints.VERTICAL;
@@ -278,6 +280,7 @@ public class ImplementGame implements ActionListener {
         r.gridx = 0;
         r.gridy = 4;
         r.gridwidth = 2;
+        //whoWonField.setHorizontalAlignment(SwingConstants.LEFT);
         resultsPanel.add(whoWonField,r);
         r.fill = GridBagConstraints.VERTICAL;
         r.weightx = 0.5;
@@ -354,23 +357,32 @@ public class ImplementGame implements ActionListener {
 			
 			GameScoring gameScoring = new TotalGameScoring();
 			int score = gameScoring.selectWinner(weaponArray);//THIS NEEDS TO BE ABLE TO RETURN AN INT OR SOMETHING (CANT RETURN VOID)
-			
+			if(score == 1){
+				whoWonField.setText("YOU WON!!!!");
+			}
+			else if(score == 0){
+				whoWonField.setText("COMPUTER WON");
+			}
+			else{
+				
+				whoWonField.setText("IT WAS A TIE, PLAY AGAIN!");
+			}
 			System.out.println("Who won: " + score);
 			String[] pr = playerRightHand.attack().split(" ");
-			System.out.println(pr[0]);
+			System.out.println("Player Right: " + pr[0]);
 			String[] pl = playerLeftHand.attack().split(" ");
-			System.out.println(pl[0]);
+			System.out.println("Player Left: " + pl[0]);
 			String[] cr = computerRightHand.attack().split(" ");
-			System.out.println(cr[0]);
+			System.out.println("Computer Right: " + cr[0]);
 			String[] cl = computerLeftHand.attack().split(" ");
-			System.out.println(cl[0]);
-			
+			System.out.println("Computer Left: " + cl[0]);
+			/*
 			System.out.println();
 			System.out.println("Player Right: " + playerRightHand.attack());
 			System.out.println("Player Left: " + playerLeftHand.attack()); 
 			System.out.println("Computer Right: " + computerRightHand.attack());
 			System.out.println("Computer Left: " + computerLeftHand.attack()); 
-
+			 */
 		   yourAttackField.setText(pr[0] + " , " + pl[0]);
 		   opponentAttackField.setText(cr[0] + " , " + cl[0]);
 		   
