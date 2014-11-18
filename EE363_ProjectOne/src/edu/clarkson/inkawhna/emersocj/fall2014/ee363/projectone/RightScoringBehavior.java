@@ -30,45 +30,45 @@ public class RightScoringBehavior implements GameScoringBehavior {
 	 public int selectWinner(ArrayList<Weapon> weaponArray) {
 		
 		
-		if(weaponArray.get(0).attack() == ROCK){
-			if(weaponArray.get(1).attack() == SCISSORS) return 1;
-			else if(weaponArray.get(1).attack() == LIZARD) return 1;
-			else if(weaponArray.get(1).attack() == SPOCK) return 0;
-			else if(weaponArray.get(1).attack() == PAPER) return 0;
-			else return -1;
-		}
-		
-		if(weaponArray.get(0).attack() ==  PAPER){
-			if(weaponArray.get(1).attack() == ROCK) return 1;
-			else if(weaponArray.get(1).attack() == SPOCK) return 1;
-			else if(weaponArray.get(1).attack() == SCISSORS) return 0;
-			else if(weaponArray.get(1).attack() == LIZARD) return 0;
-			else return -1;
-		}
-		
-		if(weaponArray.get(0).attack() ==  SCISSORS){
-			if(weaponArray.get(1).attack() == PAPER) return 1;
-			else if(weaponArray.get(1).attack() == LIZARD) return 1;
-			else if(weaponArray.get(1).attack() == SPOCK) return 0;
-			else if(weaponArray.get(1).attack() == ROCK) return 0;
-			else return -1;
-		}
-		
-		if(weaponArray.get(0).attack() ==  LIZARD){
-			if(weaponArray.get(1).attack() == SPOCK) return 1;
-			else if(weaponArray.get(1).attack() == LIZARD) return 1;
-			else if(weaponArray.get(1).attack() == SCISSORS) return 0;
-			else if(weaponArray.get(1).attack() == ROCK) return 0;
-			else return -1;
-		}
-		
-		if(weaponArray.get(0).attack() ==  SPOCK){
-			if(weaponArray.get(1).attack() == ROCK) return 1;
-			else if(weaponArray.get(1).attack() == SCISSORS) return 1;
-			else if(weaponArray.get(1).attack() == PAPER) return 0;
-			else if(weaponArray.get(1).attack() == LIZARD) return 0;
-			else return -1;
-		}
+			if(weaponArray.get(0).attack().equals(ROCK)){
+				if (weaponArray.get(1).attack().equals(SCISSORS)) return 1;
+				else if(weaponArray.get(1).attack().equals(LIZARD)) return 1;
+				else if(weaponArray.get(1).attack().equals(SPOCK)) return 0;
+				else if(weaponArray.get(1).attack().equals(PAPER)) return 0;
+				else return -1;
+			}
+			
+			if(weaponArray.get(0).attack().equals(PAPER)){
+				if (weaponArray.get(1).attack().equals(ROCK)) return 1;
+				else if(weaponArray.get(1).attack().equals(SPOCK)) return 1;
+				else if(weaponArray.get(1).attack().equals(SCISSORS)) return 0;
+				else if(weaponArray.get(1).attack().equals(LIZARD)) return 0;
+				else return -1;
+			}
+			
+			if(weaponArray.get(0).attack().equals(SCISSORS)){
+				if (weaponArray.get(1).attack().equals(PAPER)) return 1;
+				else if(weaponArray.get(1).attack().equals(LIZARD)) return 1;
+				else if(weaponArray.get(1).attack().equals(SPOCK)) return 0;
+				else if(weaponArray.get(1).attack().equals(ROCK)) return 0;
+				else return -1;
+			}
+			
+			if(weaponArray.get(0).attack().equals(LIZARD)){
+				if (weaponArray.get(1).attack().equals(SPOCK)) return 1;
+				else if(weaponArray.get(1).attack().equals(PAPER)) return 1;
+				else if(weaponArray.get(1).attack().equals(SCISSORS)) return 0;
+				else if(weaponArray.get(1).attack().equals(ROCK)) return 0;
+				else return -1;
+			}
+
+			if(weaponArray.get(0).attack().equals(SPOCK)){
+				if (weaponArray.get(1).attack().equals(ROCK)) return 1;
+				else if(weaponArray.get(1).attack().equals(SCISSORS)) return 1;
+				else if(weaponArray.get(1).attack().equals(PAPER)) return 0;
+				else if(weaponArray.get(1).attack().equals(LIZARD)) return 0;
+				else return -1;
+			}
 		return -2;
 	}
 }

@@ -23,72 +23,75 @@ public class TotalScoringBehavior implements GameScoringBehavior {
 	 * returns 1 for player one wins
 	 * return 0 for player two wins
 	 * returns -1 for a tie.
-	 * @param mainGameArray
+	 * @param weaponArray
 	 * @return
 	 */
 	
-	public int selectWinner(ArrayList<Weapon> mainGameArray) {
+	public int selectWinner(ArrayList<Weapon> weaponArray) {
 		
 		System.out.println("********");
 		System.out.println("FROM SELECT WINNER FUNCTION");
-		for(int i = 0 ; i<mainGameArray.size(); i++){
-			Weapon temp = mainGameArray.get(i);
+		for(int i = 0 ; i<weaponArray.size(); i++){
+			Weapon temp = weaponArray.get(i);
 			System.out.println(temp.attack());
 		}
 		System.out.println("********");
 		
 		
-		if(mainGameArray.get(0).attack() ==  ROCK){
-			if(mainGameArray.get(1).attack() == SCISSORS) return 1;
-			else if(mainGameArray.get(1).attack() == LIZARD) return 1;
-			else if(mainGameArray.get(1).attack() == SPOCK) return 0;
-			else if(mainGameArray.get(1).attack() == PAPER) return 0;
+		if(weaponArray.get(0).attack().equals(ROCK)){
+			if (weaponArray.get(1).attack().equals(SCISSORS)) return 1;
+			else if(weaponArray.get(1).attack().equals(LIZARD)) return 1;
+			else if(weaponArray.get(1).attack().equals(SPOCK)) return 0;
+			else if(weaponArray.get(1).attack().equals(PAPER)) return 0;
 		}
 		
-		if(mainGameArray.get(0).attack() ==  PAPER){
-			if(mainGameArray.get(1).attack() == ROCK) return 1;
-			else if(mainGameArray.get(1).attack() == SPOCK) return 1;
-			else if(mainGameArray.get(1).attack() == SCISSORS) return 0;
-			else if(mainGameArray.get(1).attack() == LIZARD) return 0;
+		if(weaponArray.get(0).attack().equals(PAPER)){
+			if (weaponArray.get(1).attack().equals(ROCK)) return 1;
+			else if(weaponArray.get(1).attack().equals(SPOCK)) return 1;
+			else if(weaponArray.get(1).attack().equals(SCISSORS)) return 0;
+			else if(weaponArray.get(1).attack().equals(LIZARD)) return 0;
 		}
 		
-		if(mainGameArray.get(0).attack() ==  SCISSORS){
-			if(mainGameArray.get(1).attack() == PAPER) return 1;
-			else if(mainGameArray.get(1).attack() == LIZARD) return 1;
-			else if(mainGameArray.get(1).attack() == SPOCK) return 0;
-			else if(mainGameArray.get(1).attack() == ROCK) return 0;
+		if(weaponArray.get(0).attack().equals(SCISSORS)){
+			if (weaponArray.get(1).attack().equals(PAPER)) return 1;
+			else if(weaponArray.get(1).attack().equals(LIZARD)) return 1;
+			else if(weaponArray.get(1).attack().equals(SPOCK)) return 0;
+			else if(weaponArray.get(1).attack().equals(ROCK)) return 0;
 		}
 		
-		if(mainGameArray.get(0).attack() ==  LIZARD){
-			if(mainGameArray.get(1).attack() == SPOCK) return 1;
-			else if(mainGameArray.get(1).attack() == LIZARD) return 1;
-			else if(mainGameArray.get(1).attack() == SCISSORS) return 0;
-			else if(mainGameArray.get(1).attack() == ROCK) return 0;
-		}
-		
-		if(mainGameArray.get(0).attack() ==  SPOCK){
-			if(mainGameArray.get(1).attack() == ROCK) return 1;
-			else if(mainGameArray.get(1).attack() == SCISSORS) return 1;
-			else if(mainGameArray.get(1).attack() == PAPER) return 0;
-			else if(mainGameArray.get(1).attack() == LIZARD) return 0;
+		if(weaponArray.get(0).attack().equals(LIZARD)){
+			if (weaponArray.get(1).attack().equals(SPOCK)) return 1;
+			else if(weaponArray.get(1).attack().equals(PAPER)) return 1;
+			else if(weaponArray.get(1).attack().equals(SCISSORS)) return 0;
+			else if(weaponArray.get(1).attack().equals(ROCK)) return 0;
 		}
 
+		if(weaponArray.get(0).attack().equals(SPOCK)){
+			if (weaponArray.get(1).attack().equals(ROCK)) return 1;
+			else if(weaponArray.get(1).attack().equals(SCISSORS)) return 1;
+			else if(weaponArray.get(1).attack().equals(PAPER)) return 0;
+			else if(weaponArray.get(1).attack().equals(LIZARD)) return 0;
+		}		
 		
-		if(mainGameArray.get(2).attack() ==  POISONOUS){
-			if(mainGameArray.get(3).attack() == INFESTED) return 1;
-			else if(mainGameArray.get(3).attack() == RADIOACTIVE) return 0;
+
+		if(weaponArray.get(2).attack().equals(POISONOUS)){
+			if(weaponArray.get(3).attack().equals(INFESTED)) return 1;
+			else if(weaponArray.get(3).attack().equals(RADIOACTIVE)) return 0;
+			else return -1;
 		}
 		
-		if(mainGameArray.get(2).attack() ==  INFESTED){
-			if(mainGameArray.get(3).attack() == RADIOACTIVE) return 1;
-			else if(mainGameArray.get(3).attack() == POISONOUS) return 0;
+		if(weaponArray.get(2).attack().equals(INFESTED)){
+			if(weaponArray.get(3).attack().equals(RADIOACTIVE)) return 1;
+			else if(weaponArray.get(3).attack().equals(POISONOUS)) return 0;
+			else return -1;
 		}
 		
-		if(mainGameArray.get(2).attack() ==  RADIOACTIVE){
-			if(mainGameArray.get(3).attack() == POISONOUS) return 1;
-			else if(mainGameArray.get(3).attack() == INFESTED) return 0;
-		}
-		return -1;
+		if(weaponArray.get(2).attack().equals(RADIOACTIVE)){
+			if(weaponArray.get(3).attack().equals(POISONOUS)) return 1;
+			else if(weaponArray.get(3).attack().equals(INFESTED)) return 0;
+			else return -1;
+		}	
+		return -2;
 	}
 }
 

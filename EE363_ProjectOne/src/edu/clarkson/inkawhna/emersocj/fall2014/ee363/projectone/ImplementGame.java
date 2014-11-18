@@ -348,8 +348,8 @@ public class ImplementGame implements ActionListener {
 			ArrayList<Weapon> weaponArray = new <Weapon>ArrayList();
 			
 			weaponArray.add(playerRightHand);
-			weaponArray.add(playerLeftHand);
 			weaponArray.add(computerRightHand);
+			weaponArray.add(playerLeftHand);
 			weaponArray.add(computerLeftHand);
 			
 			GameScoring gameScoring = new TotalGameScoring();
@@ -373,7 +373,7 @@ public class ImplementGame implements ActionListener {
 
 		   yourAttackField.setText(pr[0] + " , " + pl[0]);
 		   opponentAttackField.setText(cr[0] + " , " + cl[0]);
-		   // opponentAttackField;
+		   
 			
 			CardLayout card = (CardLayout) (cards.getLayout());
 			card.show(cards, RESULTSPANEL);

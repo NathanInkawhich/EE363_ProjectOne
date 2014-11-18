@@ -22,24 +22,24 @@ public class LeftScoringBehavior implements GameScoringBehavior {
 	 * Returns -2 when there is an error
 	 * @param ArrayList
 	 */
-	public int selectWinner(ArrayList<Weapon> mainGameArray) {
+	public int selectWinner(ArrayList<Weapon> weaponArray) {
 		
 		
-		if(mainGameArray.get(0).attack() ==  POISONOUS){
-			if(mainGameArray.get(1).attack() == INFESTED) return 1;
-			else if(mainGameArray.get(1).attack() == RADIOACTIVE) return 0;
+		if(weaponArray.get(0).attack().equals(POISONOUS)){
+			if(weaponArray.get(1).attack().equals(INFESTED)) return 1;
+			else if(weaponArray.get(1).attack().equals(RADIOACTIVE)) return 0;
 			else return -1;
 		}
 		
-		if(mainGameArray.get(0).attack() ==  INFESTED){
-			if(mainGameArray.get(1).attack() == RADIOACTIVE) return 1;
-			else if(mainGameArray.get(1).attack() == POISONOUS) return 0;
+		if(weaponArray.get(0).attack().equals(INFESTED)){
+			if(weaponArray.get(1).attack().equals(RADIOACTIVE)) return 1;
+			else if(weaponArray.get(1).attack().equals(POISONOUS)) return 0;
 			else return -1;
 		}
 		
-		if(mainGameArray.get(0).attack() ==  RADIOACTIVE){
-			if(mainGameArray.get(1).attack() == POISONOUS) return 1;
-			else if(mainGameArray.get(1).attack() == INFESTED) return 0;
+		if(weaponArray.get(0).attack().equals(RADIOACTIVE)){
+			if(weaponArray.get(1).attack().equals(POISONOUS)) return 1;
+			else if(weaponArray.get(1).attack().equals(INFESTED)) return 0;
 			else return -1;
 		}
 		return -2;
