@@ -44,8 +44,7 @@ public class ImplementGame implements ActionListener {
     JTextField whoWonField;
     
 
-    Weapon playerRightHand = new RightHandWeapon();
-    Weapon playerLeftHand = new LeftHandWeapon();
+
     Weapon computerRightHand = new RightHandWeapon();
     Weapon computerLeftHand = new LeftHandWeapon();
     
@@ -327,14 +326,18 @@ public class ImplementGame implements ActionListener {
 		}
 		if (e.getSource().equals(submitMoveButton)) {
 			
+			
+		    Weapon playerRightHand = new RightHandWeapon();
+		    Weapon playerLeftHand = new LeftHandWeapon();
+		    
 			if(rockButton.isSelected() == true)     	playerRightHand = new Rock(playerRightHand);
 			if(paperButton.isSelected() == true)    	playerRightHand = new Paper(playerRightHand);
 			if(scissorsButton.isSelected() == true)		playerRightHand = new Scissors(playerRightHand);
 			if(lizardButton.isSelected() == true)   	playerRightHand = new Lizard(playerRightHand);
 			if(spockButton.isSelected() == true)    	playerRightHand = new Spock(playerRightHand);
-			if(poisionButton.isSelected() == true)  	playerLeftHand = new Poisonous(playerRightHand);
-			if(radioactiveButton.isSelected() == true)  playerLeftHand = new Radioactive(playerRightHand);
-			if(infectedButton.isSelected() == true) 	playerLeftHand =new Infected(playerRightHand);
+			if(poisionButton.isSelected() == true)  	playerLeftHand = new Poisonous(playerLeftHand);
+			if(radioactiveButton.isSelected() == true)  playerLeftHand = new Radioactive(playerLeftHand);
+			if(infectedButton.isSelected() == true) 	playerLeftHand =new Infected(playerLeftHand);
 				
 			
 			generateOpponentAttack();
@@ -352,9 +355,9 @@ public class ImplementGame implements ActionListener {
 			
 			System.out.println(playerRightHand.attack());
 			System.out.println(playerLeftHand.attack()); //THIS GIVES INCORRECT ATTACK RESULT
-			
-			//IF WE CHOOSE TO PLAY AGAIN, A NEW SET OF WEAPON OBJECTS IS NOT CREATED, 
-			//SO WE JUST KEEP WRAPPING THE OLD WEAPONS, WHICH WILL NOT WORK
+
+		   yourAttackField.setText(playerRightHand.attack());
+		   // opponentAttackField;
 			
 			CardLayout cl = (CardLayout) (cards.getLayout());
 			cl.show(cards, RESULTSPANEL);
