@@ -7,7 +7,9 @@ import org.junit.Test;
 public class DecoratorTestCases {
 
 	@Test
-	public void DecoratorTest() {
+	public void AllDecoratorsTest() {
+		final String TOTALDECORATEDATTACK = "Infected Radioactive Poisonous Lizard Spock Scissors Paper Rock Left Handed Weapon";
+		
 		Weapon weapon = new LeftHandWeapon();
 		weapon = new Rock(weapon);
 		weapon = new Paper(weapon);	
@@ -18,9 +20,13 @@ public class DecoratorTestCases {
 		weapon = new Radioactive(weapon);
 		weapon = new Infected(weapon);
 
-		
-		
-		
+		assertEquals("All weapon decorators functioning",weapon.attack(),TOTALDECORATEDATTACK);
+		//(weapon.attack(),TOTALDECORATEDATTACK,
 	}
+	
+	public void selectWinner
+	
+	
+	
 
 }
