@@ -13,10 +13,10 @@ public class TotalScoringBehavior implements GameScoringBehavior {
 	final String PAPER =  "Paper Right Handed Weapon";	
 	final String SCISSORS = "Scissors Right Handed Weapon";
 	final String LIZARD =  "Lizard Right Handed Weapon";	
-	final String SPOCK= "Spock Rigfht Handed Weapon";
+	final String SPOCK= "Spock Right Handed Weapon";
 	final String POISONOUS = "Poisonous Left Handed Weapon";
 	final String INFESTED =  "Infested Left Handed Weapon";	
-	final String RADIOACTIVE = "Radioactice Left Handed Weapon";
+	final String RADIOACTIVE = "Radioactive Left Handed Weapon";
 	
 	/**
 	 * Contains the logic to select the winner of the game.
@@ -28,6 +28,14 @@ public class TotalScoringBehavior implements GameScoringBehavior {
 	 */
 	
 	public int selectWinner(ArrayList<Weapon> mainGameArray) {
+		
+		System.out.println("********");
+		System.out.println("FROM SELECT WINNER FUNCTION");
+		for(int i = 0 ; i<mainGameArray.size(); i++){
+			Weapon temp = mainGameArray.get(i);
+			System.out.println(temp.attack());
+		}
+		System.out.println("********");
 		
 		
 		if(mainGameArray.get(0).attack() ==  ROCK){
