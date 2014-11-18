@@ -1,5 +1,10 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Radioactive Weapon Type
+ * @author Wizard
+ *
+ */
 public class Radioactive extends WeaponDecorator {
 
 	Weapon weapon;

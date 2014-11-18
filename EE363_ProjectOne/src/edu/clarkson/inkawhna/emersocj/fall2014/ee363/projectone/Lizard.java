@@ -1,5 +1,10 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Lizard Weapon Type
+ * @author Cody Emerson
+ *
+ */
 public class Lizard extends WeaponDecorator {
 
 	Weapon weapon;

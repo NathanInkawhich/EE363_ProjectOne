@@ -1,5 +1,10 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Rock Weapon Type
+ * @author Wizard
+ *
+ */
 public class Rock extends WeaponDecorator {
 
 	Weapon weapon;

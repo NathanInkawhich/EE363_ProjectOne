@@ -2,7 +2,7 @@ package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
 /**
  * Concrete Right Hand Weapon Class to be decorated by the Weapon Decorator.
- * @author Wizard
+ * @author Cody Emerson
  *
  */
 public class RightHandWeapon extends Weapon {

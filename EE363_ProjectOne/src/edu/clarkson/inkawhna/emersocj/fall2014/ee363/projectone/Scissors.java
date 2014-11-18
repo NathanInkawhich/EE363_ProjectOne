@@ -1,5 +1,10 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Scissors Weapon Type
+ * @author Cody Emerson
+ *
+ */
 public class Scissors extends WeaponDecorator {
 
 	Weapon weapon;

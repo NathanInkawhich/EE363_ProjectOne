@@ -14,6 +14,14 @@ public class LeftScoringBehavior implements GameScoringBehavior {
 	final String INFESTED =  "LEFT INFESTED";	
 	final String RADIOACTIVE = "LEFT RADIOACTIVE";
 	
+	/**
+	 * Contains the logic to select a left handed game winner.
+	 * Returns 1 when player 1 wins.
+	 * Returns 0 when player 2 wins.
+	 * Returns -1 when there is a tie
+	 * Returns -2 when there is an error
+	 * @param ArrayList
+	 */
 	public int selectWinner(ArrayList<Weapon> mainGameArray) {
 		
 		

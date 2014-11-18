@@ -1,5 +1,10 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
+/**
+ * Poisonous Weapon Type
+ * @author Cody Emerson
+ *
+ */
 public class Poisonous extends WeaponDecorator {
 
 	Weapon weapon;

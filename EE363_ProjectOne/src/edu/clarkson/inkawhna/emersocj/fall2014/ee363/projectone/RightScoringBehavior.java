@@ -24,7 +24,7 @@ public class RightScoringBehavior implements GameScoringBehavior {
 	 * returns 0 whe payer 2 wins
 	 * returns -1 for a tie
 	 * returns -2 for an error
-	 * param weaponArray
+	 * param ArrayList
 	 */
 	
 	 public int selectWinner(ArrayList<Weapon> weaponArray) {
