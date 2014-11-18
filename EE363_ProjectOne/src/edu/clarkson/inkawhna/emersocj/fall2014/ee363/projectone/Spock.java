@@ -2,15 +2,23 @@ package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
 public class Spock extends WeaponDecorator {
 
-	public Spock(Weapon w) {
-		super(w);
-		
+	Weapon weapon;
+	
+	/**
+	 * Sets the previous weapon to the new decorated weapon : Constructor
+	 * @param weapon
+	 */
+	public Spock(Weapon weapon) {		
+		this.weapon = weapon;		
 	}
 
+	/**
+	 * Returns the previous weapon attack decorated with spock
+	 * @returns String
+	 */
 	@Override
 	public String attack() {
-		//it is not the job of this method to see if this concatenation is proper so we do not check here 
-		return new String(this.getWeaponAttack() +"," + "SPOCK");
+		return "Spock " + weapon.attack();				
 	}
 
 }

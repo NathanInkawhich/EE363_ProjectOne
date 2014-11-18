@@ -10,13 +10,8 @@ package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
  */
 public abstract class WeaponDecorator extends Weapon {
 	
-	private Weapon weapon;
-	
-	public WeaponDecorator(Weapon weapon) {
-		this.weapon = weapon;
-	}
-
-	public String getWeaponAttack(){
-		return this.weapon.attack();
-	}
+	/**
+	 * Abstract attack class to be implemented in behavior sub classes. 
+	 */
+	public abstract String attack();
 }

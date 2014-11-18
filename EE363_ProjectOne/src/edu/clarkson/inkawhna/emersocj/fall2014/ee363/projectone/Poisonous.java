@@ -1,6 +1,6 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
-public class Scissors extends WeaponDecorator {
+public class Poisonous extends WeaponDecorator {
 
 	Weapon weapon;
 	
@@ -8,17 +8,17 @@ public class Scissors extends WeaponDecorator {
 	 * Sets the previous weapon to the new decorated weapon : Constructor
 	 * @param weapon
 	 */
-	public Scissors(Weapon weapon) {		
+	public Poisonous(Weapon weapon) {		
 		this.weapon = weapon;		
 	}
 
 	/**
-	 * Returns the previous weapon attack decorated with Scissors
+	 * Returns the previous weapon attack decorated with Poisonous.
 	 * @returns String
 	 */
 	@Override
 	public String attack() {
-		return "Scissors " + weapon.attack();				
+		return "Poisonous " + weapon.attack();				
 	}
 
 }

@@ -1,20 +1,20 @@
 package edu.clarkson.inkawhna.emersocj.fall2014.ee363.projectone;
 
 /**
- * Concrete Left Hand Weapon Class to be decorated by the Weapon Decorator.
+ * Concrete Right Hand Weapon Class to be decorated by the Weapon Decorator.
  * @author Wizard
  *
  */
-public class LeftHandWeapon extends Weapon {
+public class RightHandWeapon extends Weapon {
 	
 	/**
 	 * Constructs attack string variable.
 	 */
-	LeftHandWeapon()
+	RightHandWeapon()
 	{
-		attackDescription = "Left Handed Weapon";	
+		attackDescription = "Right Handed Weapon";	
 	}
-	
+		
 	/**
 	 * Returns the attackDescription : String.
 	 */
@@ -22,4 +22,3 @@ public class LeftHandWeapon extends Weapon {
 		return attackDescription;
 	}
 }
-
