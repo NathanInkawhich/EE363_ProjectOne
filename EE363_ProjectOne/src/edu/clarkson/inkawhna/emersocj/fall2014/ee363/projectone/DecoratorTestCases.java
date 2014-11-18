@@ -24,7 +24,9 @@ public class DecoratorTestCases {
 		//(weapon.attack(),TOTALDECORATEDATTACK,
 	}
 	
-	public void selectWinner
+
+
+	
 	
 	
 	
