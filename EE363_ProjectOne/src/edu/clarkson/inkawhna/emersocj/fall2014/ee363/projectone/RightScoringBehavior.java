@@ -15,7 +15,7 @@ public class RightScoringBehavior implements GameScoringBehavior {
 	final String PAPER =  "Paper Right Handed Weapon";	
 	final String SCISSORS = "Scissors Right Handed Weapon";
 	final String LIZARD =  "Lizard Right Handed Weapon";	
-	final String SPOCK= "Spock Rigfht Handed Weapon";
+	final String SPOCK= "Spock Right Handed Weapon";
 	
 
 	/**

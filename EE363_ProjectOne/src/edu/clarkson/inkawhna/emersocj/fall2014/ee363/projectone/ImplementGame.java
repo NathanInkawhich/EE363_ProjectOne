@@ -42,6 +42,7 @@ public class ImplementGame implements ActionListener {
     JButton backButton;
     JButton playAgainButton;
     JTextField whoWonField;
+    String playerName = "Player";
     
 
 
@@ -68,6 +69,10 @@ public class ImplementGame implements ActionListener {
 	final static String TWOHANDPANEL = "TWO HANDED GAME";
 	final static String RESULTSPANEL = "RESULTS";
 	
+	/**
+	 * Adds the GUI components to the container.
+	 * @param pane
+	 */
 	public void addComponentsToPane(Container pane) {
 		
 		startPanel = new JPanel(new GridBagLayout());
@@ -302,6 +307,9 @@ public class ImplementGame implements ActionListener {
 		
 		pane.add(cards);
 	}
+	/**
+	 * Handles action listener cases.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(startGameButton)) {
 			
@@ -317,7 +325,10 @@ public class ImplementGame implements ActionListener {
 			}
 			if(typeOfGameBox.getSelectedItem().equals("Two Handed Game (RPSLS/PIR)")){
 				cl.show(cards, TWOHANDPANEL);
-
+				
+			playerName = nameField.getText();
+			if(playerName.equals(""))
+				playerName = "Player";
 			}
 		}
 		if (e.getSource().equals(backButton)) {
@@ -339,7 +350,7 @@ public class ImplementGame implements ActionListener {
 			if(spockButton.isSelected() == true)    	playerRightHand = new Spock(playerRightHand);
 			if(poisionButton.isSelected() == true)  	playerLeftHand = new Poisonous(playerLeftHand);
 			if(radioactiveButton.isSelected() == true)  playerLeftHand = new Radioactive(playerLeftHand);
-			if(infectedButton.isSelected() == true) 	playerLeftHand =new Infected(playerLeftHand);
+			if(infectedButton.isSelected() == true) 	playerLeftHand =new Infested(playerLeftHand);
 				
 			
 			generateOpponentAttack();
@@ -352,8 +363,13 @@ public class ImplementGame implements ActionListener {
 			weaponArray.add(playerLeftHand);
 			weaponArray.add(computerLeftHand);
 			
-			GameScoring gameScoring = new TotalGameScoring();
-			int score = gameScoring.selectWinner(weaponArray);//THIS NEEDS TO BE ABLE TO RETURN AN INT OR SOMETHING (CANT RETURN VOID)
+			GameScoring gameScoring = new GameScoring();
+			gameScoring.setScoringBehavior(0);
+			
+			int score = gameScoring.selectWinner(weaponArray);
+			if(score == 1) whoWonField.setText(playerName +" Won!");
+			else if (score == 0)whoWonField.setText("Computer"+" Won!");
+			else whoWonField.setText("TIE!");
 			
 			System.out.println("Who won: " + score);
 			String[] pr = playerRightHand.attack().split(" ");
@@ -385,8 +401,10 @@ public class ImplementGame implements ActionListener {
 		}		
 	}
 			
-			
-	public void generateOpponentAttack(){
+	/**
+	 * Generates a random computer attack.		
+	 */
+	private void generateOpponentAttack(){
 		
 		Random rn = new Random();
 		
@@ -403,7 +421,7 @@ public class ImplementGame implements ActionListener {
 		int randLeft = rn.nextInt(3);
 		
 		if	   (randLeft == 0 ) computerLeftHand = new Poisonous(computerLeftHand);
-		else if(randLeft == 1 ) computerLeftHand = new Infected(computerLeftHand);
+		else if(randLeft == 1 ) computerLeftHand = new Infested(computerLeftHand);
 		else if(randLeft == 2 ) computerLeftHand = new Radioactive(computerLeftHand);
 		
 	}
@@ -422,6 +440,10 @@ public class ImplementGame implements ActionListener {
         frame.setVisible(true);
     }
  
+	/**
+	 * Executes GUI
+	 * @param args
+	 */
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.

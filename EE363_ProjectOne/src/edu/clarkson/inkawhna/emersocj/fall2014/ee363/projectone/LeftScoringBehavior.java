@@ -12,7 +12,7 @@ public class LeftScoringBehavior implements GameScoringBehavior {
 	
 	final String POISONOUS = "Poisonous Left Handed Weapon";
 	final String INFESTED =  "Infested Left Handed Weapon";	
-	final String RADIOACTIVE = "Radioactice Left Handed Weapon";
+	final String RADIOACTIVE = "Radioactive Left Handed Weapon";
 	
 	/**
 	 * Contains the logic to select a left handed game winner.
