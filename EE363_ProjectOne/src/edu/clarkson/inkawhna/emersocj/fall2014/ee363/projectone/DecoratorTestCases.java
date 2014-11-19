@@ -38,6 +38,7 @@ public class DecoratorTestCases {
 		//(weapon.attack(),TOTALDECORATEDATTACK,
 	}
 	
+
 	/**
 	 * Tests that the logic is functioning for all left hand decorator functions.
 	 * @return
@@ -88,6 +89,7 @@ public class DecoratorTestCases {
 		j = -1;
 		assertEquals("Logic  functioning",j,test);
 		// Radioactive : Poisonous
+
 
 		
 		weaponArray.add(weapon1);

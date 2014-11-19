@@ -28,7 +28,7 @@ public class TotalScoringBehavior implements GameScoringBehavior {
 	 */
 	
 	public int selectWinner(ArrayList<Weapon> weaponArray) {
-				
+
 		if(weaponArray.get(0).attack().equals(ROCK)){
 			if (weaponArray.get(1).attack().equals(SCISSORS)) return 1;
 			else if(weaponArray.get(1).attack().equals(LIZARD)) return 1;
